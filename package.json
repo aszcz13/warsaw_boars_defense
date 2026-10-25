@@ -1,0 +1,23 @@
+{
+  "name": "warsaw-boars-defense",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "level": "node scripts/fetch-oldtown.mjs",
+    "sim": "tsx scripts/sim.ts",
+    "shot": "node scripts/shot.mjs"
+  },
+  "dependencies": {
+    "maplibre-gl": "^6.14.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.14.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4"
+  }
+}

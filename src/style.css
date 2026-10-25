@@ -1,0 +1,9 @@
+/* Czytelne cyfry: tylko znaki 0-9 biorą krój systemowy (piksel mylił 3/5/8), reszta zostaje pikselowa. */
+@font-face{font-family:"HudNum";font-weight:400;src:local("Arial"),local("Helvetica Neue"),local("Segoe UI"),local("DejaVu Sans"),local("Liberation Sans");unicode-range:U+0030-0039}
+@font-face{font-family:"HudNum";font-weight:700;src:local("Arial Bold"),local("Arial-BoldMT"),local("HelveticaNeue-Bold"),local("Segoe UI Bold"),local("DejaVu Sans Bold"),local("Liberation Sans Bold");unicode-range:U+0030-0039}
+html, body { margin: 0; height: 100%; overflow: hidden; background: #1b1610; font-family: "HudNum", "Pixelify Sans", "Courier New", monospace; }
+#map { position: absolute; inset: 0; }
+#game { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; image-rendering: pixelated; }
+#hud { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.maplibregl-ctrl-bottom-right, .maplibregl-ctrl-bottom-left { z-index: 0; }
+.maplibregl-ctrl-bottom-right { bottom: var(--hudb, 0px); }

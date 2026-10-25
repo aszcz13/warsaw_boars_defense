@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><body style="margin:0;background:#58704a;font:10px monospace;color:#fff">
+<canvas id="c"></canvas>
+<script type="module">
+import { getSprite } from '/src/gfx/sprites.ts';
+const q=new URLSearchParams(location.search);const K=+(q.get('k')||4);
+const rows=[
+ ['dzik_0','dzik_1','dzik_2','dzik_3','dzik_atk_0','dzik_atk_1'],
+ ['lis_0','lis_1','lis_2','lis_3','wilk_0','wilk_1','wilk_2','wilk_3'],
+ ['jelen_0','jelen_1','jelen_2','jelen_3','krol_dzik_0','krol_dzik_1','krol_dzik_2','krol_dzik_3'],
+ ['lucznik_1','lucznik_2','lucznik_3','kusznik_1','kusznik_2','kusznik_3','smola_1','smola_2','smola_3'],
+ ['wall','wall_damaged','strzala','belt','smola','syrenka','gate'],
+];
+const c=document.getElementById('c'),x=c.getContext('2d');
+c.width=1900;c.height=1000;x.imageSmoothingEnabled=false;x.fillStyle='#58704a';x.fillRect(0,0,c.width,c.height);
+let y=6;if(q.get('ids'))rows.length=0,rows.push(q.get('ids').split(','));
+for(const r of rows){let px=6,mh=0;for(const id of r){const s=getSprite(id);x.drawImage(s,px,y+14,s.width*K,s.height*K);x.fillStyle='#fff';x.font='10px monospace';x.fillText(id,px,y+10);px+=s.width*K+14;mh=Math.max(mh,s.height*K);}y+=mh+24;}
+document.title='done';window.__done=1;
+</script>
